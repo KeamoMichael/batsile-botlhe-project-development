@@ -119,9 +119,10 @@ body {
     z-index: 1001;
     background-color: transparent !important;
     background: transparent !important;
+    background-image: none !important;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    border-bottom: none;
-    box-shadow: none;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
 .hero-header.hidden {
@@ -144,12 +145,14 @@ body {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    display: none;
 }
 
 .header.visible {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    display: block;
 }
 
 .nav {
@@ -171,6 +174,16 @@ body {
 .hero-nav {
     background-color: transparent !important;
     background: transparent !important;
+    background-image: none !important;
+}
+
+/* Ensure hero nav menu and links are transparent */
+.hero-nav .nav-menu,
+.hero-nav .logo-link,
+.hero-nav .hero-nav-link {
+    background-color: transparent !important;
+    background: transparent !important;
+    background-image: none !important;
 }
 
 .logo-link {
