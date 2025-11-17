@@ -117,7 +117,8 @@ body {
     left: 0;
     right: 0;
     z-index: 1001;
-    background-color: transparent;
+    background-color: transparent !important;
+    background: transparent !important;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     border-bottom: none;
     box-shadow: none;
@@ -164,6 +165,12 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+}
+
+/* Hero Nav - Ensure transparent background */
+.hero-nav {
+    background-color: transparent !important;
+    background: transparent !important;
 }
 
 .logo-link {
@@ -378,12 +385,12 @@ body {
 /* Hero Navbar CTA Button - White with Orange on Hover */
 .hero-nav-cta {
     background-color: var(--color-white) !important;
-    color: var(--color-orange) !important;
+    color: #313439 !important;
     border: 1.5px solid var(--color-white) !important;
 }
 
 .hero-nav-cta .nav-link-text .nav-link-inner {
-    color: var(--color-orange) !important;
+    color: #313439 !important;
 }
 
 .hero-nav-cta:hover {
