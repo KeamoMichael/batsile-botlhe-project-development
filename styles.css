@@ -368,6 +368,16 @@ body {
     color: #fe6e18;
 }
 
+/* CTA button hover when navbar has white background */
+.navbar.navbar-page .nav-cta:hover {
+    background-color: var(--color-orange);
+    border: none;
+}
+
+.navbar.navbar-page .nav-cta:hover .nav-link-text .nav-link-inner {
+    color: var(--color-white) !important;
+}
+
 
 /* ============================================
    Hero Section
