@@ -649,6 +649,10 @@ body {
     max-width: 410.656px;
 }
 
+.feature-card-orange {
+    background-color: var(--color-orange);
+}
+
 .feature-icon-wrapper {
     margin-bottom: 0;
 }
@@ -664,11 +668,27 @@ body {
     margin-bottom: 8px;
 }
 
+.feature-icon-bg-transparent {
+    background-color: transparent;
+}
+
+.feature-icon-orange {
+    filter: none;
+}
+
 .feature-icon {
     width: 30px;
     height: 30px;
     object-fit: contain;
     filter: brightness(0) invert(1);
+}
+
+.feature-icon-bg-white {
+    background-color: transparent;
+}
+
+.feature-icon-white {
+    filter: none;
 }
 
 .feature-title {
@@ -690,6 +710,15 @@ body {
     color: rgb(111, 111, 111);
     margin: 0;
     text-align: start;
+}
+
+.feature-title-white {
+    color: var(--color-white);
+}
+
+.feature-description-white {
+    color: var(--color-white);
+    opacity: 0.9;
 }
 
 /* Feature Card Animation */
