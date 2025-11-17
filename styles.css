@@ -160,7 +160,8 @@ body {
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 4px;
     width: 20px;
     height: 14px;
     background: transparent;
