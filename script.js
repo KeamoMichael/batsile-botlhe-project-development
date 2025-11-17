@@ -56,51 +56,73 @@ const initScrollAnimations = () => {
 };
 
 // ============================================
-// Header Scroll Effect
+// Navbar Scroll Effect - Single Navbar with Logo Switching
 // ============================================
 
 const initHeaderScroll = () => {
-    const header = document.getElementById('header');
-    const heroHeader = document.getElementById('hero-header');
-    const heroSection = document.getElementById('hero');
+    const navbar = document.getElementById('navbar');
+    const logoDark = document.getElementById('logo-dark');
+    const logoLight = document.getElementById('logo-light');
     const featuresSection = document.querySelector('.features-section');
+    const heroSection = document.getElementById('hero');
     
-    if (!header || !heroHeader || !heroSection) return;
+    if (!navbar || !logoDark || !logoLight || !featuresSection) return;
 
     const checkScroll = () => {
-        // Box shadow removed as per user request
-        header.style.boxShadow = 'none';
+        const featuresRect = featuresSection.getBoundingClientRect();
+        const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
         
         // Check if features section (second section) is in contact with viewport
-        if (featuresSection) {
-            const featuresRect = featuresSection.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            
-            // Show main header when features section comes into contact (enters viewport)
-            if (featuresRect.top <= viewportHeight && featuresRect.bottom > 0) {
-                heroHeader.classList.add('hidden');
-                header.classList.add('visible');
-            } else {
-                heroHeader.classList.remove('hidden');
-                header.classList.remove('visible');
-            }
+        // Trigger when features section top reaches 150px from viewport top
+        if (featuresRect.top <= 150) {
+            // Features section is in view - switch to light logo and add navbar-page style
+            logoDark.style.display = 'none';
+            logoLight.style.display = 'block';
+            navbar.classList.add('navbar-page');
         } else {
-            // Fallback: use hero section height if features section not found
-            const currentScroll = window.pageYOffset;
-            const heroHeight = heroSection.offsetHeight;
-            
-            if (currentScroll > heroHeight - 100) {
-                heroHeader.classList.add('hidden');
-                header.classList.add('visible');
-            } else {
-                heroHeader.classList.remove('hidden');
-                header.classList.remove('visible');
-            }
+            // Still in hero section - switch to dark logo and remove navbar-page style
+            logoDark.style.display = 'block';
+            logoLight.style.display = 'none';
+            navbar.classList.remove('navbar-page');
         }
     };
 
-    // Check on scroll
-    window.addEventListener('scroll', checkScroll);
+    // Use Intersection Observer for better performance
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '-150px 0px 0px 0px'
+    };
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Features section is in view
+                logoDark.style.display = 'none';
+                logoLight.style.display = 'block';
+                navbar.classList.add('navbar-page');
+            } else {
+                // Features section is not in view
+                logoDark.style.display = 'block';
+                logoLight.style.display = 'none';
+                navbar.classList.remove('navbar-page');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe the features section
+    sectionObserver.observe(featuresSection);
+    
+    // Also check on scroll for better responsiveness
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                checkScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
     
     // Check on page load
     checkScroll();
@@ -235,17 +257,6 @@ const initActiveNav = () => {
     const currentPath = window.location.pathname;
 
     navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
-        if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-    
-    // Also update hero nav links
-    const heroNavLinks = document.querySelectorAll('.hero-nav-link');
-    heroNavLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
         if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
             link.classList.add('active');

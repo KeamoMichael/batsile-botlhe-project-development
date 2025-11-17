@@ -110,49 +110,23 @@ body {
    Header & Navigation
    ============================================ */
 
-/* Hero Header (shows on page load, transparent background) */
-.hero-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1001;
-    background-color: transparent !important;
-    background: transparent !important;
-    background-image: none !important;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    border-bottom: none !important;
-    box-shadow: none !important;
-}
-
-.hero-header.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-/* Main Header (shows when scrolling past hero) */
-.header {
+/* Single Navbar - Transparent by default */
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: var(--color-white);
-    transition: all var(--transition-base);
-    border-bottom: 1px solid var(--color-orange);
+    background: transparent;
+    transition: background 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: none;
     box-shadow: none;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    display: none !important;
 }
 
-.header.visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    display: block !important;
+/* Navbar with white background when past hero section */
+.navbar.navbar-page {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-orange);
 }
 
 .nav {
@@ -170,20 +144,17 @@ body {
     position: relative;
 }
 
-/* Hero Nav - Ensure transparent background */
-.hero-nav {
-    background-color: transparent !important;
-    background: transparent !important;
-    background-image: none !important;
+/* Logo switching */
+.logo-light {
+    display: none;
 }
 
-/* Ensure hero nav menu and links are transparent */
-.hero-nav .nav-menu,
-.hero-nav .logo-link,
-.hero-nav .hero-nav-link {
-    background-color: transparent !important;
-    background: transparent !important;
-    background-image: none !important;
+.navbar.navbar-page .logo-dark {
+    display: none;
+}
+
+.navbar.navbar-page .logo-light {
+    display: block;
 }
 
 .logo-link {
@@ -249,7 +220,7 @@ body {
 
 .nav-link-text .nav-link-inner:first-child {
     transform: translateY(0);
-    color: #2e3b43;
+    color: var(--color-white);
 }
 
 .nav-link-text .nav-link-inner:last-child {
@@ -262,9 +233,19 @@ body {
     color: var(--color-orange);
 }
 
+/* Nav links when navbar has white background */
+.navbar.navbar-page .nav-link-text .nav-link-inner:first-child {
+    color: #2e3b43;
+}
+
 /* Slot Machine Animation on Hover */
 .nav-link:hover .nav-link-text .nav-link-inner:first-child {
     animation: slotScrollUp 0.4s ease-out forwards;
+    color: var(--color-white);
+}
+
+/* Nav link hover when navbar has white background */
+.navbar.navbar-page .nav-link:hover .nav-link-text .nav-link-inner:first-child {
     color: #2e3b43;
 }
 
@@ -280,6 +261,11 @@ body {
 /* Reset when not hovering */
 .nav-link:not(:hover) .nav-link-text .nav-link-inner:first-child {
     animation: slotResetDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    color: var(--color-white);
+}
+
+/* Nav link styles when navbar has white background */
+.navbar.navbar-page .nav-link:not(:hover) .nav-link-text .nav-link-inner:first-child {
     color: #2e3b43;
 }
 
@@ -325,16 +311,20 @@ body {
 }
 
 .nav-link.active {
+    color: var(--color-white);
+}
+
+.navbar.navbar-page .nav-link.active {
     color: #2e3b43;
 }
 
 .nav-cta {
-    background-color: transparent;
-    color: #fe6e18 !important;
+    background-color: var(--color-white);
+    color: #313439 !important;
     padding: 0 14px;
-    border: 1.5px solid var(--color-orange);
+    border: 1.5px solid var(--color-white);
     border-radius: 26px;
-    transition: background-color var(--transition-base);
+    transition: background-color var(--transition-base), border-color var(--transition-base);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -343,77 +333,29 @@ body {
 }
 
 .nav-cta .nav-link-text .nav-link-inner {
-    color: #fe6e18;
+    color: #313439;
 }
 
 .nav-cta:hover {
     background-color: var(--color-orange);
+    border-color: var(--color-orange);
 }
 
 .nav-cta:hover .nav-link-text .nav-link-inner {
     color: var(--color-white) !important;
 }
 
-/* Hero Navbar Styles - White Links */
-.hero-nav-link {
-    color: var(--color-white) !important;
+/* CTA button when navbar has white background */
+.navbar.navbar-page .nav-cta {
+    background-color: transparent;
+    color: #fe6e18 !important;
+    border: 1.5px solid var(--color-orange);
 }
 
-.hero-nav-link .nav-link-text .nav-link-inner:first-child {
-    color: var(--color-white) !important;
+.navbar.navbar-page .nav-cta .nav-link-text .nav-link-inner {
+    color: #fe6e18;
 }
 
-.hero-nav-link .nav-link-text .nav-link-inner:last-child {
-    color: var(--color-orange) !important;
-}
-
-.hero-nav-link:hover {
-    color: var(--color-orange) !important;
-}
-
-.hero-nav-link:hover .nav-link-text .nav-link-inner:first-child {
-    animation: slotScrollUp 0.4s ease-out forwards;
-    color: var(--color-white) !important;
-}
-
-.hero-nav-link:hover .nav-link-text .nav-link-inner:last-child {
-    animation: slotScrollIn 0.4s ease-out forwards;
-    color: var(--color-orange) !important;
-}
-
-.hero-nav-link:not(:hover) .nav-link-text .nav-link-inner:first-child {
-    animation: slotResetDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    color: var(--color-white) !important;
-}
-
-.hero-nav-link:not(:hover) .nav-link-text .nav-link-inner:last-child {
-    animation: slotResetOut 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    color: var(--color-orange) !important;
-}
-
-.hero-nav-link.active {
-    color: var(--color-white) !important;
-}
-
-/* Hero Navbar CTA Button - White with Orange on Hover */
-.hero-nav-cta {
-    background-color: var(--color-white) !important;
-    color: #313439 !important;
-    border: 1.5px solid var(--color-white) !important;
-}
-
-.hero-nav-cta .nav-link-text .nav-link-inner {
-    color: #313439 !important;
-}
-
-.hero-nav-cta:hover {
-    background-color: var(--color-orange) !important;
-    border-color: var(--color-orange) !important;
-}
-
-.hero-nav-cta:hover .nav-link-text .nav-link-inner {
-    color: var(--color-white) !important;
-}
 
 /* ============================================
    Hero Section
@@ -425,8 +367,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0;
-    margin-top: 0 !important;
-    margin: 0 !important;
+    margin-top: 60px;
     overflow: hidden;
 }
 
