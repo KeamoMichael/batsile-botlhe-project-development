@@ -295,6 +295,51 @@ const initActiveNav = () => {
 };
 
 // ============================================
+// Mobile Menu Toggle
+// ============================================
+
+const initMobileMenu = () => {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = navMenu.querySelectorAll('.nav-link');
+    
+    if (!mobileMenuToggle || !navMenu) return;
+    
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close menu on window resize if it's open and we're no longer on mobile
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 767) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+};
+
+// ============================================
 // Initialize All Functions
 // ============================================
 
@@ -305,6 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLoadMore();
     initButtonEffects();
     initActiveNav();
+    initMobileMenu();
 });
 
 // ============================================
