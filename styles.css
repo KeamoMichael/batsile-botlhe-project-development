@@ -551,12 +551,12 @@ body {
 
 /* CTA button hover when navbar has white background */
 .navbar.navbar-page .nav-cta:hover {
-    background-color: #2e353b;
+    background-color: var(--color-orange);
     border: none;
 }
 
 .navbar.navbar-page .nav-cta:hover .nav-link-text .nav-link-inner {
-    color: var(--color-orange) !important;
+    color: var(--color-white) !important;
 }
 
 
@@ -842,7 +842,7 @@ body {
 
 /* Slot Machine Animation on Hover */
 .btn-load-more:hover {
-    background-color: #2e353b;
+    background-color: var(--color-orange);
     border: none;
 }
 
@@ -853,7 +853,7 @@ body {
 
 .btn-load-more:hover .btn-load-more-inner:last-child {
     animation: slotScrollIn 0.4s ease-out forwards;
-    color: var(--color-orange);
+    color: var(--color-white);
 }
 
 /* Reset when not hovering */
