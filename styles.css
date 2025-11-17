@@ -969,10 +969,12 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+    transform: translateY(0);
 }
 
 .service-card:hover .service-content {
     background-color: var(--color-orange);
+    transform: translateY(-10px);
 }
 
 .service-title {
@@ -1014,7 +1016,7 @@ body {
     transform: translateY(0);
     color: #0d0100;
     opacity: 1;
-    transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .service-title-text .service-title-inner:last-child {
@@ -1026,18 +1028,20 @@ body {
     width: 100%;
     color: var(--color-white);
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Service Title Smooth Fade Transition on Hover */
 .service-card:hover .service-title-text .service-title-inner:first-child {
     opacity: 0;
     color: #0d0100;
+    transform: translateY(-5px);
 }
 
 .service-card:hover .service-title-text .service-title-inner:last-child {
     opacity: 1;
     color: var(--color-white);
+    transform: translateY(-5px);
 }
 
 /* Reset when not hovering */
@@ -1060,12 +1064,14 @@ body {
     object-fit: contain;
     flex-shrink: 0;
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(0);
+    transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .service-card:hover .service-arrow {
     display: block;
     opacity: 1;
+    transform: translateY(-5px);
 }
 
 .load-more-container {
