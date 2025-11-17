@@ -1,0 +1,16 @@
+{
+  "name": "batsile-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "analyze-website.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.56.1"
+  }
+}

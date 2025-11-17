@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "browser": {
+      "command": "cmd.exe",
+      "args": ["/c", "\\\\Mac\\Home\\Documents\\Web Development\\ayanda-dlamini\\mcp-browser\\start-server.cmd"]
+    }
+  }
+}
+  
