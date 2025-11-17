@@ -306,11 +306,18 @@ const initMobileMenu = () => {
     
     if (!mobileMenuToggle || !mobileMenuOverlay) return;
     
+    const navbar = document.getElementById('navbar');
+    
     const openMenu = () => {
         mobileMenuOverlay.classList.add('active');
         mobileMenuToggle.classList.add('active');
         mobileMenuToggle.style.display = 'none';
         document.body.style.overflow = 'hidden';
+        
+        // Hide navbar border when menu is open
+        if (navbar) {
+            navbar.classList.add('menu-open');
+        }
         
         // Reset animation delays for menu items
         const menuItems = mobileMenuOverlay.querySelectorAll('.mobile-menu-list li');
@@ -324,6 +331,11 @@ const initMobileMenu = () => {
         mobileMenuToggle.classList.remove('active');
         mobileMenuToggle.style.display = 'flex';
         document.body.style.overflow = '';
+        
+        // Show navbar border when menu is closed
+        if (navbar) {
+            navbar.classList.remove('menu-open');
+        }
         
         // Reset animation delays
         const menuItems = mobileMenuOverlay.querySelectorAll('.mobile-menu-list li');
