@@ -672,10 +672,6 @@ body {
     background-color: transparent;
 }
 
-.feature-icon-orange {
-    filter: none;
-}
-
 .feature-icon {
     width: 30px;
     height: 30px;
@@ -689,6 +685,10 @@ body {
 
 .feature-icon-white {
     filter: none;
+}
+
+.feature-icon-orange {
+    filter: none !important;
 }
 
 .feature-title {
