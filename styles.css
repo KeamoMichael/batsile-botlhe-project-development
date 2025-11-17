@@ -1091,9 +1091,9 @@ body {
     transition: transform 0.6s ease-out, opacity 0.4s ease-out, color 0.4s ease-out;
 }
 
-/* Service Title Slot Machine Slide Up Effect on Hover */
+/* Service Title Simple Slide Up Effect on Hover - No Slot Machine */
 .service-card:hover .service-title-text .service-title-inner:first-child {
-    transform: translateY(-100%);
+    transform: translateY(0);
     opacity: 0;
     color: #0d0100;
 }

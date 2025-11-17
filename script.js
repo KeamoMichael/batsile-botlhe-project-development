@@ -75,9 +75,9 @@ const initHeaderScroll = () => {
         const featuresRect = featuresSection.getBoundingClientRect();
         const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
         
-        // Check if features section (second section) is in contact with viewport
-        // Trigger when features section top reaches 150px from viewport top
-        if (featuresRect.top <= 150) {
+        // Check if features section (second section) touches the top edge of the screen
+        // Trigger when features section top reaches 0 (touches top edge)
+        if (featuresRect.top <= 0) {
             // Features section is in view - slide down white navbar from top
             // First position it above viewport with white background
             navbar.classList.add('navbar-page', 'navbar-hidden');
@@ -102,9 +102,10 @@ const initHeaderScroll = () => {
     };
 
     // Use Intersection Observer for better performance
+    // Trigger when features section touches the top edge of the screen
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '-150px 0px 0px 0px'
+        threshold: 0,
+        rootMargin: '0px 0px 0px 0px'
     };
     
     const sectionObserver = new IntersectionObserver((entries) => {
