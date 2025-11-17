@@ -1130,7 +1130,7 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: var(--spacing-4xl);
-    background-image: url('Web Resources/Service Images/Services-BG.jpg');
+    background-image: url('Web Resources/CTA BG02.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1157,6 +1157,35 @@ body {
     letter-spacing: -2px;
     color: var(--color-white);
     margin-bottom: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+}
+
+.cta-title-line {
+    display: block;
+}
+
+.cta-title.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cta-title.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cta-section .btn.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition-delay: 0.2s;
+}
+
+.cta-section .btn.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============================================
