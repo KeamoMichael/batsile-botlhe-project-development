@@ -989,7 +989,7 @@ body {
 .service-title-text {
     display: inline-block;
     overflow: hidden;
-    height: 1.2em;
+    height: 2.4em;
     line-height: 1.2;
     vertical-align: top;
     position: relative;
@@ -999,7 +999,8 @@ body {
 
 .service-title-text .service-title-inner {
     display: block;
-    white-space: nowrap;
+    white-space: normal;
+    word-wrap: break-word;
     will-change: transform;
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
@@ -1048,10 +1049,10 @@ body {
 
 .service-arrow {
     display: none;
-    width: 18px !important;
-    height: 18px !important;
-    max-width: 18px !important;
-    max-height: 18px !important;
+    width: 28px !important;
+    height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
     object-fit: contain;
     flex-shrink: 0;
     transition: all;
