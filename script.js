@@ -82,16 +82,20 @@ const initHeaderScroll = () => {
         isWhiteNavbarVisible = true;
         isTransitioning = true;
         
-        // First position it above viewport with white background
-        navbar.classList.add('navbar-page', 'navbar-hidden');
+        // First apply white background (instant, no transition)
+        navbar.classList.add('navbar-page');
+        // Position it above viewport
+        navbar.classList.add('navbar-hidden');
         // Force reflow to ensure classes are applied
         navbar.offsetHeight;
-        // Then slide it down smoothly
+        // Then slide it down smoothly (transform only, no fade)
         requestAnimationFrame(() => {
-            navbar.classList.remove('navbar-hidden');
-            setTimeout(() => {
-                isTransitioning = false;
-            }, 400);
+            requestAnimationFrame(() => {
+                navbar.classList.remove('navbar-hidden');
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 400);
+            });
         });
         logoDark.style.display = 'none';
         logoLight.style.display = 'block';
