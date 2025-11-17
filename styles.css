@@ -511,7 +511,7 @@ body {
     background-color: transparent;
     color: var(--color-white) !important;
     padding: 0 14px;
-    border: 1.5px solid var(--color-white);
+    border: 1.5px solid #2e353b;
     border-radius: 26px;
     transition: background-color var(--transition-base), border-color var(--transition-base);
     display: flex;
@@ -792,12 +792,12 @@ body {
 
 .btn-load-more {
     background-color: transparent;
-    color: var(--color-orange);
-    border: 1.5px solid var(--color-orange);
+    color: #2e353b;
+    border: 1.5px solid #2e353b;
     border-radius: 26px;
     padding: 12px 24px;
     font-family: var(--font-primary);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     cursor: pointer;
     transition: background-color 0.4s ease-out, border-color 0.4s ease-out;
@@ -827,7 +827,7 @@ body {
 
 .btn-load-more-inner:first-child {
     transform: translateY(0);
-    color: var(--color-orange);
+    color: #2e353b;
 }
 
 .btn-load-more-inner:last-child {
@@ -858,12 +858,12 @@ body {
 
 /* Reset when not hovering */
 .btn-load-more:not(:hover) {
-    border: 1.5px solid var(--color-orange);
+    border: 1.5px solid #2e353b;
 }
 
 .btn-load-more:not(:hover) .btn-load-more-inner:first-child {
     animation: slotResetDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    color: var(--color-orange);
+    color: #2e353b;
 }
 
 .btn-load-more:not(:hover) .btn-load-more-inner:last-child {
