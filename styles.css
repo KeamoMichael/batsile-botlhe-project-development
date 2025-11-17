@@ -325,8 +325,8 @@ body {
 }
 
 .nav-cta {
-    background-color: var(--color-white);
-    color: #313439 !important;
+    background-color: transparent;
+    color: var(--color-white) !important;
     padding: 0 14px;
     border: 1.5px solid var(--color-white);
     border-radius: 26px;
@@ -339,12 +339,12 @@ body {
 }
 
 .nav-cta .nav-link-text .nav-link-inner {
-    color: #313439;
+    color: var(--color-white);
 }
 
 .nav-cta:hover {
     background-color: var(--color-orange);
-    border-color: var(--color-orange);
+    border: none;
 }
 
 .nav-cta:hover .nav-link-text .nav-link-inner {
