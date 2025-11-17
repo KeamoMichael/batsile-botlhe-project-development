@@ -68,73 +68,67 @@ const initHeaderScroll = () => {
     
     if (!navbar || !logoDark || !logoLight || !featuresSection) return;
 
-    // Initialize: transparent navbar is visible by default
-    // White navbar state will be positioned above viewport when needed
+    // Initialize: ensure clean state on page load
+    // Remove any existing classes that might cause issues
+    navbar.classList.remove('navbar-page', 'navbar-hidden');
+    logoDark.style.display = 'block';
+    logoLight.style.display = 'none';
+
+    let isWhiteNavbarVisible = false;
+    let isTransitioning = false;
+
+    const showWhiteNavbar = () => {
+        if (isWhiteNavbarVisible || isTransitioning) return; // Prevent duplicate calls
+        isWhiteNavbarVisible = true;
+        isTransitioning = true;
+        
+        // First position it above viewport with white background
+        navbar.classList.add('navbar-page', 'navbar-hidden');
+        // Force reflow to ensure classes are applied
+        navbar.offsetHeight;
+        // Then slide it down smoothly
+        requestAnimationFrame(() => {
+            navbar.classList.remove('navbar-hidden');
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 400);
+        });
+        logoDark.style.display = 'none';
+        logoLight.style.display = 'block';
+    };
+
+    const hideWhiteNavbar = () => {
+        if (!isWhiteNavbarVisible || isTransitioning) return; // Prevent duplicate calls
+        isWhiteNavbarVisible = false;
+        isTransitioning = true;
+        
+        // Slide white navbar up
+        navbar.classList.add('navbar-hidden');
+        // After slide up animation completes, remove white background
+        setTimeout(() => {
+            if (!isWhiteNavbarVisible) { // Double check state hasn't changed
+                navbar.classList.remove('navbar-page');
+            }
+            isTransitioning = false;
+        }, 400); // Match transition duration
+        logoDark.style.display = 'block';
+        logoLight.style.display = 'none';
+    };
 
     const checkScroll = () => {
         const featuresRect = featuresSection.getBoundingClientRect();
-        const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
         
         // Check if features section (second section) touches the top edge of the screen
         // Trigger when features section top reaches 0 (touches top edge)
         if (featuresRect.top <= 0) {
-            // Features section is in view - slide down white navbar from top
-            // First position it above viewport with white background
-            navbar.classList.add('navbar-page', 'navbar-hidden');
-            // Force reflow to ensure classes are applied
-            navbar.offsetHeight;
-            // Then slide it down smoothly
-            requestAnimationFrame(() => {
-                navbar.classList.remove('navbar-hidden');
-            });
-            logoDark.style.display = 'none';
-            logoLight.style.display = 'block';
+            showWhiteNavbar();
         } else {
-            // Still in hero section - slide white navbar up and show transparent navbar
-            navbar.classList.add('navbar-hidden');
-            // After slide up animation completes, remove white background
-            setTimeout(() => {
-                navbar.classList.remove('navbar-page');
-            }, 400); // Match transition duration
-            logoDark.style.display = 'block';
-            logoLight.style.display = 'none';
+            hideWhiteNavbar();
         }
     };
 
-    // Use Intersection Observer for better performance
-    // Trigger when features section touches the top edge of the screen
-    const observerOptions = {
-        threshold: 0,
-        rootMargin: '0px 0px 0px 0px'
-    };
-    
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Features section is in view - slide down white navbar from top
-                navbar.classList.add('navbar-page', 'navbar-hidden');
-                navbar.offsetHeight; // Force reflow
-                requestAnimationFrame(() => {
-                    navbar.classList.remove('navbar-hidden');
-                });
-                logoDark.style.display = 'none';
-                logoLight.style.display = 'block';
-            } else {
-                // Features section is not in view - slide white navbar up
-                navbar.classList.add('navbar-hidden');
-                setTimeout(() => {
-                    navbar.classList.remove('navbar-page');
-                }, 400);
-                logoDark.style.display = 'block';
-                logoLight.style.display = 'none';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe the features section
-    sectionObserver.observe(featuresSection);
-    
-    // Also check on scroll for better responsiveness
+    // Use scroll event only for precise control
+    // Intersection Observer can be unreliable for edge detection
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -144,12 +138,13 @@ const initHeaderScroll = () => {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
     
     // Check on page load - ensure navbar is visible (transparent) initially
-    // Remove hidden class on load so transparent navbar shows
-    navbar.classList.remove('navbar-hidden');
-    checkScroll();
+    // Use setTimeout to ensure DOM is fully ready
+    setTimeout(() => {
+        checkScroll();
+    }, 100);
 };
 
 // ============================================

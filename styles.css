@@ -122,6 +122,9 @@ body {
     border-bottom: none;
     box-shadow: none;
     transform: translateY(0);
+    will-change: transform, background-color;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Navbar with white background when past hero section */
