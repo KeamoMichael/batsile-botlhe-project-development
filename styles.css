@@ -931,7 +931,7 @@ body {
     border-radius: 16px;
     overflow: hidden;
     text-decoration: none;
-    transition: all var(--transition-base);
+    transition: all;
     display: block;
     position: relative;
     width: 100%;
@@ -948,7 +948,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform var(--transition-slow);
+    transition: all;
     border-radius: 16px;
 }
 
@@ -964,7 +964,7 @@ body {
     padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
     background-color: var(--color-white);
     border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
