@@ -293,6 +293,7 @@ body {
         opacity: 0;
         transform: translateX(-30px);
         transition: opacity 0.5s ease, transform 0.5s ease;
+        margin-bottom: -4px;
     }
 
     .mobile-menu-overlay.active .mobile-menu-list li {
@@ -320,10 +321,10 @@ body {
         font-family: "Cy Grotesk Grand", sans-serif;
         font-size: 26px;
         font-weight: 500;
-        color: var(--color-black);
+        color: #2e353b;
         text-decoration: none;
         display: block;
-        padding: var(--spacing-sm) 0;
+        padding: 4px 0;
         transition: color 0.3s ease;
     }
 
