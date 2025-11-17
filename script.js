@@ -63,23 +63,39 @@ const initHeaderScroll = () => {
     const header = document.getElementById('header');
     const heroHeader = document.getElementById('hero-header');
     const heroSection = document.getElementById('hero');
+    const featuresSection = document.querySelector('.features-section');
     
     if (!header || !heroHeader || !heroSection) return;
 
     const checkScroll = () => {
-        const currentScroll = window.pageYOffset;
-        const heroHeight = heroSection.offsetHeight;
-        
         // Box shadow removed as per user request
         header.style.boxShadow = 'none';
         
-        // Show main header when scrolling past hero section
-        if (currentScroll > heroHeight - 100) {
-            heroHeader.classList.add('hidden');
-            header.classList.add('visible');
+        // Check if features section (second section) is in contact with viewport
+        if (featuresSection) {
+            const featuresRect = featuresSection.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // Show main header when features section comes into contact (enters viewport)
+            if (featuresRect.top <= viewportHeight && featuresRect.bottom > 0) {
+                heroHeader.classList.add('hidden');
+                header.classList.add('visible');
+            } else {
+                heroHeader.classList.remove('hidden');
+                header.classList.remove('visible');
+            }
         } else {
-            heroHeader.classList.remove('hidden');
-            header.classList.remove('visible');
+            // Fallback: use hero section height if features section not found
+            const currentScroll = window.pageYOffset;
+            const heroHeight = heroSection.offsetHeight;
+            
+            if (currentScroll > heroHeight - 100) {
+                heroHeader.classList.add('hidden');
+                header.classList.add('visible');
+            } else {
+                heroHeader.classList.remove('hidden');
+                header.classList.remove('visible');
+            }
         }
     };
 
