@@ -78,19 +78,21 @@ const initHeaderScroll = () => {
         // Check if features section (second section) is in contact with viewport
         // Trigger when features section top reaches 150px from viewport top
         if (featuresRect.top <= 150) {
-            // Features section is in view - slide down navbar with white background
-            // First add the white background style, then slide down
-            navbar.classList.add('navbar-page');
-            // Small delay to ensure style is applied before sliding
-            setTimeout(() => {
+            // Features section is in view - slide down white navbar from top
+            // First position it above viewport with white background
+            navbar.classList.add('navbar-page', 'navbar-hidden');
+            // Force reflow to ensure classes are applied
+            navbar.offsetHeight;
+            // Then slide it down smoothly
+            requestAnimationFrame(() => {
                 navbar.classList.remove('navbar-hidden');
-            }, 10);
+            });
             logoDark.style.display = 'none';
             logoLight.style.display = 'block';
         } else {
-            // Still in hero section - slide navbar up and switch to transparent
+            // Still in hero section - slide white navbar up and show transparent navbar
             navbar.classList.add('navbar-hidden');
-            // After slide up animation, remove white background
+            // After slide up animation completes, remove white background
             setTimeout(() => {
                 navbar.classList.remove('navbar-page');
             }, 400); // Match transition duration
@@ -108,15 +110,16 @@ const initHeaderScroll = () => {
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Features section is in view - slide down navbar with white background
-                navbar.classList.add('navbar-page');
-                setTimeout(() => {
+                // Features section is in view - slide down white navbar from top
+                navbar.classList.add('navbar-page', 'navbar-hidden');
+                navbar.offsetHeight; // Force reflow
+                requestAnimationFrame(() => {
                     navbar.classList.remove('navbar-hidden');
-                }, 10);
+                });
                 logoDark.style.display = 'none';
                 logoLight.style.display = 'block';
             } else {
-                // Features section is not in view - slide navbar up
+                // Features section is not in view - slide white navbar up
                 navbar.classList.add('navbar-hidden');
                 setTimeout(() => {
                     navbar.classList.remove('navbar-page');
