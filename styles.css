@@ -767,7 +767,7 @@ body {
 .clients-title {
     font-family: var(--font-primary);
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
     letter-spacing: -2px;
     color: var(--color-black);
@@ -883,7 +883,7 @@ body {
 .section-title {
     font-family: var(--font-primary);
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
     letter-spacing: -2px;
     color: var(--color-black);
@@ -1090,7 +1090,7 @@ body {
 .cta-title {
     font-family: var(--font-primary);
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.15;
     letter-spacing: -2px;
     color: var(--color-black);
