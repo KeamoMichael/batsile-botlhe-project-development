@@ -1127,7 +1127,7 @@ body {
    ============================================ */
 .cta-section {
     position: relative;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: var(--spacing-4xl);
     background-image: url('Web Resources/Service Images/Services-BG.jpg');
