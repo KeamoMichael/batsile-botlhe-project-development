@@ -1126,13 +1126,55 @@ body {
    CTA Section
    ============================================ */
 .cta-section {
-    padding: var(--spacing-4xl) 30px;
-    background-color: var(--color-white);
+    position: relative;
+    padding: 0 24px;
+    margin: var(--spacing-4xl) 0;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.cta-background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.cta-bg-pattern {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+}
+
+.cta-shape-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 626.781px;
+    height: 594.719px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cta-shape-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .cta-container {
+    position: relative;
+    z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
+    padding: var(--spacing-4xl) 0;
     display: flex;
     align-items: center;
     gap: var(--spacing-3xl);
@@ -1140,6 +1182,7 @@ body {
 
 .cta-content {
     flex: 1;
+    z-index: 2;
 }
 
 .cta-title {
@@ -1148,12 +1191,56 @@ body {
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -2px;
-    color: var(--color-black);
+    color: var(--color-white);
     margin-bottom: var(--spacing-2xl);
 }
 
 .cta-button {
     display: inline-block;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 1.5px solid var(--color-white);
+    padding: 12px 24px;
+    border-radius: 26px;
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.cta-button:hover {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    border-color: var(--color-orange);
+}
+
+.cta-button .btn-text {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button .btn-text-inner {
+    display: block;
+    transition: transform 0.4s ease-out, color 0.4s ease-out;
+}
+
+.cta-button .btn-text-inner:first-child {
+    color: var(--color-black);
+}
+
+.cta-button .btn-text-inner:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    color: var(--color-white);
+}
+
+.cta-button:hover .btn-text-inner:first-child {
+    transform: translateY(-100%);
+}
+
+.cta-button:hover .btn-text-inner:last-child {
+    transform: translateY(0);
 }
 
 .cta-image {
@@ -1161,6 +1248,8 @@ body {
     aspect-ratio: 1.09 / 1;
     border-radius: 16px;
     overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
 
 .cta-img {
