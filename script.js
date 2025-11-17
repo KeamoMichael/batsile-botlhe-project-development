@@ -219,9 +219,14 @@ const initLoadMore = () => {
                 serviceCard.innerHTML = `
                     <div class="service-image">
                         <img src="${serviceToLoad.image}" alt="${serviceToLoad.title}">
-                    </div>
-                    <div class="service-content">
-                        <h4 class="service-title">${serviceToLoad.title}</h4>
+                        <div class="service-content">
+                            <h4 class="service-title">
+                                <span class="service-title-text">
+                                    <span class="service-title-inner">${serviceToLoad.title}</span>
+                                </span>
+                            </h4>
+                            <img src="Web Icons/right-arrow-white (2).png" alt="Arrow" class="service-arrow">
+                        </div>
                     </div>
                 `;
                 servicesGrid.appendChild(serviceCard);
