@@ -1048,10 +1048,13 @@ body {
 
 .service-arrow {
     display: none;
-    width: 18px;
-    height: 18px;
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
     object-fit: contain;
-    transition: opacity var(--transition-base);
+    flex-shrink: 0;
+    transition: all;
 }
 
 .service-card:hover .service-arrow {
