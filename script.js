@@ -311,6 +311,12 @@ const initMobileMenu = () => {
         mobileMenuToggle.classList.add('active');
         mobileMenuToggle.style.display = 'none';
         document.body.style.overflow = 'hidden';
+        
+        // Reset animation delays for menu items
+        const menuItems = mobileMenuOverlay.querySelectorAll('.mobile-menu-list li');
+        menuItems.forEach((item, index) => {
+            item.style.transitionDelay = `${(index + 1) * 0.1}s`;
+        });
     };
     
     const closeMenu = () => {
@@ -318,6 +324,12 @@ const initMobileMenu = () => {
         mobileMenuToggle.classList.remove('active');
         mobileMenuToggle.style.display = 'flex';
         document.body.style.overflow = '';
+        
+        // Reset animation delays
+        const menuItems = mobileMenuOverlay.querySelectorAll('.mobile-menu-list li');
+        menuItems.forEach(item => {
+            item.style.transitionDelay = '0s';
+        });
     };
     
     mobileMenuToggle.addEventListener('click', openMenu);
