@@ -1874,10 +1874,11 @@ body {
     }
     
     .cta-section {
-        padding: 60px 20px;
+        padding: 80px 20px;
         margin: 60px 20px;
         border-radius: 16px;
         position: relative;
+        background-size: 120%;
     }
     
     .cta-section::before {
@@ -1897,10 +1898,15 @@ body {
         z-index: 1;
     }
     
+    .cta-content {
+        text-align: center;
+    }
+    
     .cta-title {
         font-size: 32px;
         line-height: 1.2;
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+        text-align: center;
     }
     
     .footer {
