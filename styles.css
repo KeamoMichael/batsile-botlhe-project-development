@@ -1878,8 +1878,10 @@ body {
         margin: 20px 20px 60px;
         border-radius: 16px;
         position: relative;
+        background-image: url('Web Resources/CTA BG03.jpg');
         background-size: 130%;
         background-position: center;
+        background-repeat: no-repeat;
         min-height: 400px;
     }
     
