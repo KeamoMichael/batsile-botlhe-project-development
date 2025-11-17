@@ -173,7 +173,7 @@ body {
 }
 
 .hamburger-line {
-    width: 100%;
+    width: 90%;
     height: 1.5px;
     background-color: var(--color-white);
     border-radius: 1px;
