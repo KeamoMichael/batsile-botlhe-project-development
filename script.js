@@ -61,14 +61,33 @@ const initScrollAnimations = () => {
 
 const initHeaderScroll = () => {
     const header = document.getElementById('header');
-    if (!header) return;
+    const heroHeader = document.getElementById('hero-header');
+    const heroSection = document.getElementById('hero');
+    
+    if (!header || !heroHeader || !heroSection) return;
 
-    window.addEventListener('scroll', () => {
+    const checkScroll = () => {
         const currentScroll = window.pageYOffset;
-
+        const heroHeight = heroSection.offsetHeight;
+        
         // Box shadow removed as per user request
         header.style.boxShadow = 'none';
-    });
+        
+        // Show main header when scrolling past hero section
+        if (currentScroll > heroHeight - 100) {
+            heroHeader.classList.add('hidden');
+            header.classList.add('visible');
+        } else {
+            heroHeader.classList.remove('hidden');
+            header.classList.remove('visible');
+        }
+    };
+
+    // Check on scroll
+    window.addEventListener('scroll', checkScroll);
+    
+    // Check on page load
+    checkScroll();
 };
 
 // ============================================
@@ -200,6 +219,17 @@ const initActiveNav = () => {
     const currentPath = window.location.pathname;
 
     navLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+        if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    // Also update hero nav links
+    const heroNavLinks = document.querySelectorAll('.hero-nav-link');
+    heroNavLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
         if (linkPath === currentPath || (currentPath === '/' && linkPath === '/')) {
             link.classList.add('active');
