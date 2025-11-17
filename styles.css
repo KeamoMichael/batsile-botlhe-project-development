@@ -1050,8 +1050,7 @@ body {
 /* Service Title Slot Machine Animation */
 .service-title-text {
     display: inline-block;
-    overflow: hidden;
-    height: 2.4em;
+    overflow: visible;
     line-height: 1.2;
     vertical-align: top;
     position: relative;
@@ -1063,57 +1062,21 @@ body {
     display: block;
     white-space: normal;
     word-wrap: break-word;
-    will-change: transform;
+    will-change: transform, color;
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
     line-height: 1.2;
     padding: 0;
     margin: 0;
     letter-spacing: -0.5px;
-}
-
-.service-title-text .service-title-inner:first-child {
     transform: translateY(0);
     color: #0d0100;
-    opacity: 1;
-    transition: transform 0.6s ease-out, opacity 0.4s ease-out, color 0.4s ease-out;
+    transition: transform 0.6s ease-out, color 0.6s ease-out;
 }
 
-.service-title-text .service-title-inner:last-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    transform: translateY(100%);
-    width: 100%;
-    color: var(--color-white);
-    opacity: 0;
-    transition: transform 0.6s ease-out, opacity 0.4s ease-out, color 0.4s ease-out;
-}
-
-/* Service Title Simple Slide Up Effect on Hover - No Slot Machine */
-.service-card:hover .service-title-text .service-title-inner:first-child {
-    transform: translateY(0);
-    opacity: 0;
-    color: #0d0100;
-}
-
-.service-card:hover .service-title-text .service-title-inner:last-child {
-    transform: translateY(0);
-    opacity: 1;
-    color: var(--color-white);
-}
-
-/* Reset when not hovering */
-.service-card:not(:hover) .service-title-text .service-title-inner:first-child {
-    transform: translateY(0);
-    opacity: 1;
-    color: #0d0100;
-}
-
-.service-card:not(:hover) .service-title-text .service-title-inner:last-child {
-    transform: translateY(100%);
-    opacity: 0;
+/* Service Title slides up and changes to white on hover */
+.service-card:hover .service-title-text .service-title-inner {
+    transform: translateY(-5px);
     color: var(--color-white);
 }
 
