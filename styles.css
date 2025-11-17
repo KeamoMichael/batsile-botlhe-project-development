@@ -1308,8 +1308,8 @@ body {
 
 .footer-line {
     height: 1px;
-    background-color: var(--color-orange);
-    margin: var(--spacing-xl) 0;
+    background-color: var(--color-gray);
+    margin: var(--spacing-3xl) 0;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -1340,11 +1340,39 @@ body {
     opacity: 1;
 }
 
+.footer-copyright-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-sm);
+}
+
 .footer-copyright {
-    font-family: var(--font-secondary);
+    font-family: "Cy Grotesk Grand", sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: var(--color-gray);
+    text-align: right;
+}
+
+.footer-credits {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+}
+
+.credits-text {
+    font-family: "Cy Grotesk Grand", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-gray);
+}
+
+.credits-logo {
+    height: 16px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* ============================================
@@ -1482,5 +1510,17 @@ body {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+    
+    .footer-copyright-wrapper {
+        align-items: center;
+    }
+    
+    .footer-copyright {
+        text-align: center;
+    }
+    
+    .footer-credits {
+        justify-content: center;
     }
 }
