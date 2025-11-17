@@ -800,11 +800,74 @@ body {
     font-size: 12px;
     font-weight: 400;
     cursor: pointer;
-    transition: all var(--transition-base);
+    transition: background-color 0.4s ease-out, border-color 0.4s ease-out;
 }
 
+.btn-load-more-text {
+    display: inline-block;
+    overflow: hidden;
+    height: 1.4em;
+    line-height: 1.4;
+    vertical-align: top;
+    position: relative;
+    width: auto;
+    min-width: fit-content;
+}
+
+.btn-load-more-inner {
+    display: block;
+    white-space: nowrap;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-load-more-inner:first-child {
+    transform: translateY(0);
+    color: var(--color-orange);
+}
+
+.btn-load-more-inner:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    width: 100%;
+    color: var(--color-white);
+}
+
+/* Slot Machine Animation on Hover */
 .btn-load-more:hover {
     background-color: var(--color-orange);
+    border: none;
+}
+
+.btn-load-more:hover .btn-load-more-inner:first-child {
+    animation: slotScrollUp 0.4s ease-out forwards;
+    color: var(--color-orange);
+}
+
+.btn-load-more:hover .btn-load-more-inner:last-child {
+    animation: slotScrollIn 0.4s ease-out forwards;
+    color: var(--color-white);
+}
+
+/* Reset when not hovering */
+.btn-load-more:not(:hover) {
+    border: 1.5px solid var(--color-orange);
+}
+
+.btn-load-more:not(:hover) .btn-load-more-inner:first-child {
+    animation: slotResetDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    color: var(--color-orange);
+}
+
+.btn-load-more:not(:hover) .btn-load-more-inner:last-child {
+    animation: slotResetOut 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     color: var(--color-white);
 }
 
