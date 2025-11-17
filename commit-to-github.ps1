@@ -1,6 +1,9 @@
 # Navigate to project directory
-$projectPath = "\\Mac\Home\Documents\Web Development\batsile-botlhe-project-development"
+$projectPath = "\\Mac\Home\Documents\batsile-botlhe-project-development"
 Set-Location $projectPath
+
+# Configure git safe directory to avoid ownership issues
+git config --global --add safe.directory $projectPath
 
 # Initialize git if not already initialized
 if (-not (Test-Path .git)) {
@@ -19,12 +22,16 @@ if (-not $remoteExists) {
 git add .
 
 # Commit with descriptive message
-$commitMessage = "Update MCP browser and add commit scripts"
+$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$commitMessage = "Update project files - $timestamp"
 if ($args.Count -gt 0) {
     $commitMessage = $args[0]
 }
 git commit -m $commitMessage
 
 # Push to GitHub
+Write-Host "Pushing to GitHub..."
 git push origin main
+
+Write-Host "Changes committed and pushed successfully!"
 
