@@ -1212,7 +1212,7 @@ body {
 }
 
 .footer-logo img {
-    height: 100px;
+    height: 44px;
     width: auto;
     object-fit: contain;
 }
@@ -1230,9 +1230,10 @@ body {
 
 .footer-list-title {
     font-family: var(--font-primary);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-black);
+    font-size: 18px;
+    font-weight: 400;
+    color: #524e4e;
+    line-height: 30.6px;
     margin-bottom: var(--spacing-md);
 }
 
@@ -1245,6 +1246,7 @@ body {
 .footer-link {
     font-family: var(--font-secondary);
     font-size: 12px;
+    font-weight: 400;
     color: var(--color-gray);
     text-decoration: none;
     transition: color var(--transition-base);
@@ -1280,22 +1282,24 @@ body {
 
 .contact-label {
     font-family: var(--font-primary);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-black);
+    font-size: 18px;
+    font-weight: 400;
+    color: #524e4e;
+    line-height: 30.6px;
     margin-bottom: var(--spacing-xs);
 }
 
 .contact-text {
     font-family: var(--font-secondary);
     font-size: 12px;
+    font-weight: 400;
     color: var(--color-gray);
     margin-bottom: var(--spacing-xs);
 }
 
 .footer-line {
     height: 1px;
-    background-color: var(--color-pink-light);
+    background-color: var(--color-orange);
     margin: var(--spacing-xl) 0;
     max-width: 1200px;
     margin-left: auto;
@@ -1316,20 +1320,22 @@ body {
 .footer-social {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 8px;
 }
 
 .social-arrow {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    opacity: 0.5;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    color: var(--color-gray);
+    opacity: 1;
 }
 
 .footer-copyright {
     font-family: var(--font-secondary);
     font-size: 12px;
-    color: var(--color-gray-light);
+    font-weight: 400;
+    color: var(--color-gray);
 }
 
 /* ============================================
