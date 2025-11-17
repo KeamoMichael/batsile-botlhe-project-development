@@ -1229,10 +1229,10 @@ body {
 }
 
 .footer-list-title {
-    font-family: var(--font-primary);
+    font-family: "Cy Grotesk Grand", sans-serif;
     font-size: 18px;
-    font-weight: 400;
-    color: #524e4e;
+    font-weight: 500;
+    color: #2e353b;
     line-height: 30.6px;
     margin-bottom: var(--spacing-md);
 }
@@ -1244,7 +1244,7 @@ body {
 }
 
 .footer-link {
-    font-family: var(--font-secondary);
+    font-family: "Cy Grotesk Grand", sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: var(--color-gray);
@@ -1268,29 +1268,38 @@ body {
     align-items: flex-start;
 }
 
+.contact-item .contact-icon {
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
 .contact-icon {
     flex-shrink: 0;
     width: 18px;
     height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.contact-icon img {
+.contact-icon-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(3%) saturate(2000%) hue-rotate(180deg) brightness(90%) contrast(95%);
 }
 
 .contact-label {
-    font-family: var(--font-primary);
+    font-family: "Cy Grotesk Grand", sans-serif;
     font-size: 18px;
-    font-weight: 400;
-    color: #524e4e;
+    font-weight: 500;
+    color: #2e353b;
     line-height: 30.6px;
     margin-bottom: var(--spacing-xs);
 }
 
 .contact-text {
-    font-family: var(--font-secondary);
+    font-family: "Cy Grotesk Grand", sans-serif;
     font-size: 12px;
     font-weight: 400;
     color: var(--color-gray);
