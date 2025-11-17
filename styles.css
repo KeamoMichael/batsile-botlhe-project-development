@@ -1055,7 +1055,7 @@ body {
     padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
     background-color: var(--color-white);
     border-radius: 12px;
-    transition: transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.6s ease-out, background-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1108,7 +1108,7 @@ body {
     transform: translateY(0);
     color: #0d0100;
     opacity: 1;
-    transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.6s ease-out, opacity 0.4s ease-out, color 0.4s ease-out;
 }
 
 .service-title-text .service-title-inner:last-child {
@@ -1116,33 +1116,35 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    transform: translateY(0);
+    transform: translateY(100%);
     width: 100%;
     color: var(--color-white);
     opacity: 0;
-    transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.6s ease-out, opacity 0.4s ease-out, color 0.4s ease-out;
 }
 
-/* Service Title Smooth Fade Transition on Hover */
+/* Service Title Slot Machine Slide Up Effect on Hover */
 .service-card:hover .service-title-text .service-title-inner:first-child {
+    transform: translateY(-100%);
     opacity: 0;
     color: #0d0100;
-    transform: translateY(-5px);
 }
 
 .service-card:hover .service-title-text .service-title-inner:last-child {
+    transform: translateY(0);
     opacity: 1;
     color: var(--color-white);
-    transform: translateY(-5px);
 }
 
 /* Reset when not hovering */
 .service-card:not(:hover) .service-title-text .service-title-inner:first-child {
+    transform: translateY(0);
     opacity: 1;
     color: #0d0100;
 }
 
 .service-card:not(:hover) .service-title-text .service-title-inner:last-child {
+    transform: translateY(100%);
     opacity: 0;
     color: var(--color-white);
 }
@@ -1157,13 +1159,13 @@ body {
     flex-shrink: 0;
     opacity: 0;
     transform: translateY(0);
-    transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .service-card:hover .service-arrow {
     display: block;
     opacity: 1;
-    transform: translateY(-5px);
+    transform: translateY(0);
 }
 
 .load-more-container {
