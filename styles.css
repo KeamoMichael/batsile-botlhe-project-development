@@ -1127,8 +1127,8 @@ body {
    ============================================ */
 .cta-section {
     position: relative;
-    padding: var(--spacing-4xl) 30px;
-    background-image: url('Web Resources/BG Pattern-03.png');
+    padding: var(--spacing-4xl);
+    background-image: url('Web Resources/Service Images/Services-BG.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
