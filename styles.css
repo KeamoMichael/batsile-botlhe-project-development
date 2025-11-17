@@ -687,6 +687,14 @@ body {
     filter: none;
 }
 
+.feature-icon-bg-white-circle {
+    background-color: var(--color-white);
+}
+
+.feature-icon-orange-no-filter {
+    filter: none !important;
+}
+
 .feature-icon-orange {
     filter: none !important;
 }
